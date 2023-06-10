@@ -1,0 +1,28 @@
+<h1 class="text-primary text-center">Your Order</h1>
+    <div class="row p-1 border rounded" *ngIf="!!order">
+        <div class="col-md-6 col-sm-12" style="border-right:1px solid black;">
+        <h2 class="text-primary">Cart Details</h2>
+        <ul *ngFor="let product of cartList" class="d-flex justify-content-between">
+            <li><img style="border-radius: 50%; height: 45px; width: 45px;object-fit: cover;" src="{{product.productId.images.url}}" alt=""></li>
+            <li>{{product.productId.title}}</li>
+            <li>{{product.quantity}}</li>
+            <li>{{product.total}}</li>
+            <hr>
+        </ul>
+        <h3 class="text-primary text-end fw-bold" >Total Price: {{order.total | currency}}</h3>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h1 class="text-primary">User Details</h1>
+        <h3 class="text-primary">User Name: {{order.fullname}}</h3>
+        <hr>
+        <h3 class="text-primary">Address: {{order.address}}</h3>
+        <hr>
+        <h3 class="text-primary">Email: {{order.email}}</h3>
+        <hr>
+        <h3 class="text-primary">Phone: {{order.phone}}</h3>
+        <hr>
+      </div>
+      <div class="col-md-12 text-center">
+        <app-paypal-btn [order]="order"></app-paypal-btn>
+      </div>
+    </div>

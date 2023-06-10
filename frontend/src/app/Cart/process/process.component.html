@@ -1,0 +1,42 @@
+<h1 class="text-primary text-center">Your Order</h1>
+<div class="row mt-4" >
+    <div class="col-md-6 col-sm-12 p-1 border rounded">
+        <ul *ngFor="let product of cartList" class="d-flex justify-content-between">
+            <li><img style="border-radius: 50%; height: 45px; width: 45px;object-fit: cover;" src="{{product.productId.images.url}}" alt=""></li>
+            <li>{{product.productId.title}}</li>
+            <li>{{product.quantity}}</li>
+            <li>{{product.total}}</li>
+            <hr>
+        </ul>
+        <div class="text-primary text-end fw-bold">Total Price: {{total | currency}}</div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 p-1 border rounded">
+        <form [formGroup]="OrderForm">
+        <div class="form-group">
+          <label>first name</label>
+          <input type="text" class="form-control" formControlName="firstname" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label>last name</label>
+          <input type="text" class="form-control" formControlName="lastname" readonly>
+        </div>
+        
+        <div class="form-group">
+           <label>email</label>
+           <input type="email" class="form-control" formControlName="email" readonly>
+        </div>
+        <div class="form-group">
+          <label>Mobile</label>
+          <input type="text" class="form-control" formControlName="mobile" readonly>
+        </div>
+        
+        <div class="form-group">
+           <label>Address</label>
+           <input type="text" class="form-control" formControlName="address">
+        </div>
+        </form>
+    </div>
+    <button class="btn btn-primary p-1 fa-bold" (click)="createOrder()">Order</button>
+</div>

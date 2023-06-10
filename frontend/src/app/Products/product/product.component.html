@@ -1,0 +1,12 @@
+<div class="card m-2">
+    <div class="card-header">
+        {{product.title}}
+    </div>
+    <img class="card-img-top" style="height: 250px;" src="{{product.images.url}}" alt="Card image cap">
+    <div class="card-body">
+        <h3 class="text-info">{{product.description}}</h3>
+        <p>Color: {{product.color}}</p>
+        <p>Brand: {{product.brand}}</p>
+        <button type="button" class="btn btn-primary btn-lg btn-block w-100" (click)="addToCart(product._id)">Add To Cart</button>
+    </div>
+</div>

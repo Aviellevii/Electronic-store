@@ -1,0 +1,54 @@
+<div class="col-md-6 col-sm-12 p-3 border rounded mx-auto" *ngIf="user">
+    <h2 class="text-primary">Edit User</h2>
+    <form [formGroup]="editUser" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label>first name</label>
+          <input type="text" class="form-control" formControlName="firstname">
+          <div class="error-list" *ngIf="fc.firstname.errors && isSubmitted">
+            <span class="error" *ngIf="fc.firstname.errors.required">Name is Required</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>last name</label>
+          <input type="text" class="form-control" formControlName="lastname">
+          <div class="error-list" *ngIf="fc.lastname.errors && isSubmitted">
+            <span class="error" *ngIf="fc.lastname.errors.required">Last Name is Required</span>
+          </div>
+        </div> 
+        
+        <div class="form-group">
+          <label>email</label>
+          <input type="email" class="form-control" formControlName="email">
+          <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+            <span class="error" *ngIf="fc.email.errors.required">Email is Required</span>
+            <span class="error" *ngIf="fc.email.errors.email">Please enter right mail format</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Mobile</label>
+          <input type="text" class="form-control" formControlName="mobile">
+          <div class="error-list" *ngIf="fc.mobile.errors && isSubmitted">
+            <span class="error" *ngIf="fc.mobile.errors.required">mobile is Required</span>
+            <span class="error" *ngIf="fc.mobile.errors.minlength">mobile need minimum 9 char</span>
+          </div>
+        </div>
+        <div class="form-group">
+        <label>Role</label>
+         <select class="form-select" formControlName="role">
+            <option value="user">user</option>
+            <option value="admin">admin</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label>isBlocked</label>
+            <select class="form-select" formControlName="isBlocked">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Edit</button>
+     </form>
+</div>

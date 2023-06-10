@@ -1,0 +1,45 @@
+<div class="col-md-6 col-sm-12 p-3 border rounded mx-auto">
+    <h2 class="text-primary">Add Product</h2>
+    <form [formGroup]="createProductForm" (ngSubmit)="submit()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>title</label>
+          <input type="text" class="form-control" formControlName="title">
+        </div>
+        
+        <div class="form-group">
+          <label>description</label>
+          <input type="text" class="form-control" formControlName="description">
+        </div>
+        
+        <div class="form-group">
+          <label>price</label>
+          <input type="email" class="form-control" formControlName="price">
+        </div>
+        
+        <div class="form-group">
+          <label>category</label>
+          <select class="form-select" formControlName="category">
+            <option value="">---please select category---</option>
+            <option *ngFor="let category of categoires" value="{{category._id}}">{{category.title}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label>brand</label>
+            <input type="text" class="form-control" formControlName="brand">
+          </div>
+          <div class="form-group">
+            <label>images</label>
+            <input type="file" class="form-control" formControlName="file" (change)="onFileSelect($event)">
+          </div>
+          <div class="form-group"> 
+            <label>quantity</label>
+            <input type="text" class="form-control" formControlName="quantity">
+          </div>
+          <div class="form-group">
+            <label>color</label>
+            <input type="text" class="form-control" formControlName="color">
+          </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+     </form>
+</div>

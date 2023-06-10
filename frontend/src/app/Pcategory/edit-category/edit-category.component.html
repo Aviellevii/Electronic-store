@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-sm-12 p-3 border rounded mx-auto">
+        <h2 class="text-primary">Edit Category</h2>
+        <br>
+        <div class="form-group" *ngIf="!!category">
+            <label>title</label>
+            <input type="text" class="form-control" value="{{category.title}}" #title>
+            <br>
+            <button class="btn btn-primary" (click)="Edit(title.value)">Create</button>
+        </div>
+    </div>
+</div>

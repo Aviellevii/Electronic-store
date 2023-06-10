@@ -1,0 +1,27 @@
+<div class="col-md-6 col-sm-12 p-3 border rounded mx-auto" *ngIf="!!blog">
+    <h2 class="text-primary">Edit Blog</h2>
+    <form [formGroup]="editBlog" (ngSubmit)="submit()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>title</label>
+          <input type="text" class="form-control" formControlName="title">
+        </div>
+        
+        <div class="form-group">
+          <label>description</label>
+          <input type="text" class="form-control" formControlName="description">
+        </div>
+        
+        <div class="form-group">
+          <label>category</label>
+          <input type="text" class="form-control" formControlName="category">
+        </div>
+    
+          <div class="form-group">
+            <label>images</label>
+            <input type="file" class="form-control" formControlName="file" (change)="onFileSelect($event)">
+          </div>
+          
+        <br>
+        <button type="submit" class="btn btn-primary">Edit Blog</button>
+     </form>
+</div>

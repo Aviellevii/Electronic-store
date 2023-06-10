@@ -1,0 +1,39 @@
+<div class="col-md-6 col-sm-12 p-3 border rounded mx-auto">
+  <h2 class="text-primary">Register page</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="submit()">
+    <label>first name</label>
+    <input type="text" class="form-control" formControlName="firstname">
+    <div class="error-list" *ngIf="fc.firstname.errors && isSubmitted">
+      <span class="error" *ngIf="fc.firstname.errors.required">Name is Required</span>
+    </div>
+    <br>
+    <label>last name</label>
+    <input type="text" class="form-control" formControlName="lastname">
+    <div class="error-list" *ngIf="fc.lastname.errors && isSubmitted">
+      <span class="error" *ngIf="fc.lastname.errors.required">Last Name is Required</span>
+    </div>
+    <br>
+    <label>email</label>
+    <input type="email" class="form-control" formControlName="email">
+    <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+      <span class="error" *ngIf="fc.email.errors.required">Email is Required</span>
+      <span class="error" *ngIf="fc.email.errors.email">Please enter right mail format</span>
+    </div>
+    <br>
+    <label>Password</label>
+    <input type="password" class="form-control" formControlName="password">
+    <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
+      <span class="error" *ngIf="fc.password.errors.required">Password is Required</span>
+      <span class="error" *ngIf="fc.password.errors.minlength">Password need minimum 10 char</span>
+    </div>
+    <br>
+    <label>Mobile</label>
+    <input type="text" class="form-control" formControlName="mobile">
+    <div class="error-list" *ngIf="fc.mobile.errors && isSubmitted">
+      <span class="error" *ngIf="fc.mobile.errors.required">mobile is Required</span>
+      <span class="error" *ngIf="fc.mobile.errors.minlength">mobile need minimum 9 char</span>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</div>

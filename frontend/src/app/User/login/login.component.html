@@ -1,0 +1,24 @@
+<div class="col-md-6 col-sm-12 p-3 border rounded mx-auto">
+    <h2 class="text-primary">Login page</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <label>email</label>
+        <input type="email" class="form-control" formControlName="email">
+        <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+            <span class="error" *ngIf="fc.email.errors.required">email is Required</span>
+        </div>
+        <br>
+        <br>
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password">
+        <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
+            <span class="error" *ngIf="fc.password.errors.required">password is Required</span>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <br>
+        <div class="text-end">
+            <a class="text-info" routerLink="/forgot-password">forgot password</a>
+        </div>
+    </form>
+</div>

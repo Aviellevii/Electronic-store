@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-lg-4 col-md-3 col-sm-12 p-2" *ngFor="let blog of blogs">
+        <div class="card m-2">
+            <div class="card-header">
+                {{blog.title}}
+            </div>
+            <img class="card-img-top" style="height: 250px;" src="{{blog.images.url}}" alt="Card image cap">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="head">
+                        <h3 class="text-info">{{blog.category}}</h3>
+                    </div>
+                    <div class="stars">
+                        <star-rating [value]="5" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="false" (rate)="onRate($event)"></star-rating>
+                    </div>
+                </div>
+                <p>Description: {{blog.description}}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <div class="btn-group d-flex flex-row align-items-center border rounded">
+                    <div class="border rounded p-1" style="color: gray;">0</div><div (click)="disliked(blog)" class="border"><i [ngClass]="{'dislike':blog.isDisLiked}"  class="far fa-thumbs-down p-1"></i></div>
+                    <div (click)="liked(blog)"><i  [ngClass]="{'like':blog.isLiked}"  class="far fa-thumbs-up p-1"></i></div><div class="border rounded p-1" style="color: gray;">0</div>
+                </div>
+                <div class="d-flex flex-row align-items-center border rounded">
+                    <div class="border rounded p-1" style="color: gray;">{{blog.numViews}}</div><i class="far fa-eye" (click)="numView(blog)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
