@@ -128,7 +128,7 @@ const forgotPasswordToken = asyncHandler(async(req,res) =>{
         //create token to 10 minutes
         const token = jwt.sign({id:user._id,email:user.email},secret,{expiresIn:"10m"})
         await user.save();
-        const resetUrl = `follow this link to reset your password this link valid to 10 minutes <a href='http://localhost:4200/reset-password/${user._id}/${token}'>click here</>`
+        const resetUrl = `follow this link to reset your password this link valid to 10 minutes <a href='https://electronic-store23.netlify.app/reset-password/${user._id}/${token}'>click here</>`
         const data = {
             to:email,
             text:'Hey user',
